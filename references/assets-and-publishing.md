@@ -25,6 +25,32 @@ Broad style guardrails:
 - Ask for one or more signature motifs before generating a themed pack: celestial bodies, flowers, masks, bells, mirrors, thorns, insects, letters, ritual tools, weapons, clocks, ruins, ribbons, keys, or candles.
 - Maintain a shared palette and motif list within one pack so generated assets feel related.
 
+## Constraint Levels
+
+Not every asset type has the same confidence level. Before generating or wiring images, classify the asset:
+
+Hard-constrained assets:
+
+- Card-pack cover: final `300x440`; must run through `scripts/finalize_cardpack_cover.py`; do not use square card art.
+- Buff icon: final `31x31`; use the Buff border atlas; red frame for negative/debuff, non-red frames for positive/neutral until official semantics are confirmed.
+- Relic icon: final `128x128`; square framed icon with centered object; do not wire raw 256x256 generated art directly.
+
+Practical defaults:
+
+- Card art: `512x512` square.
+- Mod/workshop icon: square image, often derived from the pack cover or a dedicated icon.
+
+Unconstrained or reference-needed:
+
+- Blessing icons.
+- Keyword icons.
+- Character portraits and animation frames.
+- Enemy intent icons.
+- Dialogue/event illustrations.
+- Any asset type without official references or tested published examples.
+
+For hard-constrained assets, validate size and post-processing before writing CSV paths. For unconstrained assets, ask for references when possible and clearly report that in-game verification is required.
+
 Workflow:
 
 1. Generate an asset inventory from the mod design: card art, card pack cover, Buff icons, relic icons, preview icon, character/animation assets.

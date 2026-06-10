@@ -11,6 +11,7 @@ It is intended for mod authors who have design ideas but may not know Lua, C#, o
 - [Status](#status)
 - [Model Note](#model-note)
 - [What v0 Handles Well](#what-v0-handles-well)
+- [Asset Constraints](#asset-constraints)
 - [Current Boundaries](#current-boundaries)
 - [Official Tutorial](#official-tutorial)
 - [Demo](#demo)
@@ -37,6 +38,29 @@ The Ashen Ledger demo shown in this repository was produced with GPT-5.5. Model 
 - Card-pack covers, Buff icons, and relic icon size checks
 - Local static validation before in-game testing
 - Basic publishing preparation
+
+## Asset Constraints
+
+v0 includes asset generation support, but only some asset categories have concrete size and post-processing constraints. Use the constrained categories below when predictable results matter.
+
+Constrained in v0:
+
+- Card-pack cover: final PNG should be `300x440`. Generated portrait art must be post-processed with `scripts/finalize_cardpack_cover.py`, which applies the official-style silhouette alpha mask and removes guide/debug edge colors. Do not use square card art as a pack cover.
+- Buff icon: final PNG must be `31x31`. Use `assets/buff-border-atlas.png` as the frame reference. Negative/debuff Buffs use the red frame; positive or neutral Buffs can use non-red frames until official semantics are known.
+- Relic icon: final PNG should be `128x128`, square, framed, and object-centered. Larger generated art is only an intermediate concept image.
+- Card art: practical default is `512x512` square art. This is a stable workflow default for card images, but not yet an official size claim.
+- Mod/workshop icon: square image; use the generated pack cover or a dedicated icon as source, then resize/crop as needed.
+
+Not yet tightly constrained:
+
+- Blessing icons
+- Keyword icons
+- Character portraits and animation frames
+- Enemy intent icons
+- Dialogue/event illustrations
+- Any asset type without a verified official reference or tested published example
+
+For unconstrained categories, the skill should ask for references when possible and report that in-game verification is still required.
 
 ## Current Boundaries
 
@@ -86,6 +110,7 @@ WAJ Modder 是一个非官方 Codex skill，用于根据自然语言想法创建
 - [状态](#状态)
 - [模型说明](#模型说明)
 - [v0 较稳定的能力](#v0-较稳定的能力)
+- [素材规范约束](#素材规范约束)
 - [当前边界](#当前边界)
 - [官方教程](#官方教程)
 - [展示模组](#展示模组)
@@ -111,6 +136,29 @@ WAJ Modder 是一个非官方 Codex skill，用于根据自然语言想法创建
 - 卡包封面、Buff 图标、遗物图标的尺寸检查
 - 进游戏测试前的本地静态校验
 - 基础发布准备
+
+## 素材规范约束
+
+v0 支持素材生成，但并不是所有素材类型都已经有明确尺寸和后处理规范。需要稳定结果时，优先使用下面这些已经约束过的类型。
+
+v0 已约束：
+
+- 卡包封面：最终 PNG 应为 `300x440`。生成的竖版图必须经过 `scripts/finalize_cardpack_cover.py` 后处理，套用官方式外形 alpha，并清理引导线、调试色和绿色边缘。不要把方形卡面直接当作卡包封面。
+- Buff 图标：最终 PNG 必须是 `31x31`。使用 `assets/buff-border-atlas.png` 作为边框参考。负面/debuff 使用红色边框；正面或中性 Buff 暂时可使用非红色边框，直到确认官方语义。
+- 遗物图标：最终 PNG 应为 `128x128`，方形、带边框、中心物件清晰。更大的生成图只能作为中间概念图。
+- 卡面：实践默认是 `512x512` 方图。这是当前稳定工作流默认值，但还不是官方尺寸声明。
+- 模组/工坊图标：使用方形图片；可以从卡包封面或单独图标生成后裁切/缩放。
+
+暂未严格约束：
+
+- 祝福图标
+- 关键词图标
+- 角色头像和动画帧
+- 敌人攻击意图图标
+- 对话/事件插图
+- 任何没有官方参考图或已验证发布样例的素材类型
+
+对于暂未约束的素材类型，skill 应优先询问参考图，并明确说明仍需要进游戏验证。
 
 ## 当前边界
 
