@@ -1,0 +1,3 @@
+display_name: WAJ Modder
+short_description: Build WAJ Lua mods from ideas.
+default_prompt: Help me turn a Witch's Apocalyptic Journey mod idea into a Lua-template mod.
