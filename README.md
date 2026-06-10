@@ -9,6 +9,7 @@ It is intended for mod authors who have design ideas but may not know Lua, C#, o
 ## Contents
 
 - [Status](#status)
+- [Model Note](#model-note)
 - [What v0 Handles Well](#what-v0-handles-well)
 - [Current Boundaries](#current-boundaries)
 - [Official Tutorial](#official-tutorial)
@@ -19,6 +20,10 @@ It is intended for mod authors who have design ideas but may not know Lua, C#, o
 ## Status
 
 This is a v0 skill. Treat generated mods as testable drafts, not guaranteed final releases.
+
+## Model Note
+
+The Ashen Ledger demo shown in this repository was produced with GPT-5.5. Model capability matters: different language models, image models, prompts, and context can produce different implementation quality, asset style, and reliability. The v0 boundaries below should be read as the demonstrated result for this model-assisted workflow, not as a guarantee that every model will match it.
 
 ## What v0 Handles Well
 
@@ -79,6 +84,7 @@ WAJ Modder 是一个非官方 Codex skill，用于根据自然语言想法创建
 ## 目录
 
 - [状态](#状态)
+- [模型说明](#模型说明)
 - [v0 较稳定的能力](#v0-较稳定的能力)
 - [当前边界](#当前边界)
 - [官方教程](#官方教程)
@@ -88,6 +94,10 @@ WAJ Modder 是一个非官方 Codex skill，用于根据自然语言想法创建
 ## 状态
 
 这是 v0 版本 skill。生成结果应被视为可测试草稿，而不是无需验证的最终发布版本。
+
+## 模型说明
+
+本仓库展示的 Ashen Ledger 示例使用 GPT-5.5 生成与协助完成。模型能力会直接影响结果：不同语言模型、图像模型、提示词和上下文，可能带来不同的实现质量、素材风格和稳定性。因此，下方 v0 能力边界应理解为该模型辅助流程下的展示结果，而不是所有模型都能完全复现的保证。
 
 ## v0 较稳定的能力
 
