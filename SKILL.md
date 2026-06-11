@@ -22,11 +22,15 @@ Treat outputs as testable mod drafts, not guaranteed final builds. Prefer readab
    - `references/lua-patterns.md` for common `ScriptExecutor` code.
    - `references/mechanic-patterns.md` for keyword/tag systems.
    - `references/assets-and-publishing.md` for generated art, game directory lookup, and workshop publishing.
+   - `references/asset-style-guide.md` for card art, Buff icon, relic icon, and card-pack cover visual style.
+   - `references/cardpack-cover-layout.md` for layered card-pack cover composition and title placement.
+   - `references/cardpack-cover-prompt-examples.md` for known-good card-pack cover prompt patterns such as Ashen Ledger.
 4. Use bundled scripts when they fit:
    - `scripts/ensure_tutorial.py` to find or clone the official `meowalive/apocalyptic-journey-mod-tutorial` repo.
    - `scripts/create_mod.py` to copy `ModTemplate` and update `ModConfig.json`.
    - `scripts/validate_mod.py` to check config, CSV structure, Data/Text IDs, card `BaseScript`, `PackBelong`, image paths, and script hazards.
-   - `scripts/finalize_cardpack_cover.py` after every generated card-pack cover to apply the official silhouette mask and strip guide/debug edge colors.
+   - `scripts/finalize_cardpack_cover.py` after generated full card-pack covers to fit to 300x440, apply the silhouette mask, and strip guide/debug edge colors.
+   - `scripts/compose_cardpack_cover.py` only as a fallback when the model cannot generate a complete cover with usable title placement.
    - `scripts/locate_game.py` to find the local game install and workshop uploader.
 5. Ask a concise question only when a missing choice would make file generation risky. Otherwise make a conservative assumption and continue.
 6. When editing files, preserve CSV headers exactly, keep comments/second rows, and append or update only the relevant rows.
@@ -60,9 +64,9 @@ For a mod-generation task, produce or update:
 
 ## Asset Policy
 
-Asset generation is part of v0. Use broad style guardrails rather than overfitting to one example: avoid photorealism, prefer readable pixel-art or pixel-adjacent game icons/covers, use clear silhouettes, and ask the developer for signature motifs such as celestial shapes, thorns, mirrors, letters, masks, bells, insects, ritual tools, weapons, flowers, clocks, or ruins.
+Asset generation is part of v0. Use broad style guardrails rather than overfitting to one example: avoid photorealism, prefer readable pixel-art or pixel-adjacent game icons/covers, use clear silhouettes, and ask the developer for signature motifs such as celestial shapes, thorns, mirrors, letters, masks, bells, insects, ritual tools, weapons, flowers, clocks, or ruins. For visual style, load `references/asset-style-guide.md` before prompting image generation.
 
-Card-pack covers are a special case: never generate them as square icons. Final covers must be `300x440` PNGs. After every cover generation, run `scripts/finalize_cardpack_cover.py <input> <output>` before wiring the CSV path. The default finalizer applies the silhouette alpha mask without adding the outer frame overlay; add `--overlay-frame` only when the user explicitly wants that extra outline. Do not send annotated safe-area guides, guide text, colored rectangles, green/chroma-key masks, or semi-transparent layout blocks to the image model as visible art.
+Card-pack covers are a special case: never generate them as square icons. Prefer template-guided full-cover generation: use `assets/cardpack-cover-base-300x440.png` as a visual/reference image for the image model, ask it to generate the complete cover including integrated title treatment, then run `scripts/finalize_cardpack_cover.py <generated-cover> <output>` to enforce `300x440`, apply the silhouette mask, and strip green/debug edges. Do not use script-rendered titles by default because they tend to look detached from the cover art. Use `scripts/compose_cardpack_cover.py` only as a fallback when the model cannot produce a complete cover. Do not send annotated safe-area guides, guide text, colored rectangles, green/chroma-key masks, or semi-transparent layout blocks to the image model as visible art.
 
 Relic icons are also a fixed-format asset in v0. Use a `128x128` final PNG with an official-style square border/frame and centered object silhouette. Do not wire 256x256 generated relic art directly into CSV; treat larger AI output as intermediate concept art and downscale/composite to 128x128 before use.
 
