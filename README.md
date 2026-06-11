@@ -1,6 +1,6 @@
 # WAJ Modder
 
-English | [中文](#中文)
+English | [中文](#中文) | [效果展示](#效果展示)
 
 WAJ Modder is an unofficial Codex skill for creating and validating Lua-template mods for **Witch's Apocalyptic Journey** from natural-language ideas.
 
@@ -8,16 +8,29 @@ It is intended for creators who have mod ideas but may not know Lua, C#, the gam
 
 ## Contents
 
-- [Status](#status)
-- [How To Use](#how-to-use)
-- [What v0 Handles Well](#what-v0-handles-well)
-- [Asset Generation Scope](#asset-generation-scope)
-- [Current Boundaries](#current-boundaries)
-- [Official Tutorial](#official-tutorial)
-- [Demo](#demo)
-- [Model Note](#model-note)
-- [License](#license)
-- [中文](#中文)
+- [WAJ Modder](#waj-modder)
+  - [Contents](#contents)
+  - [Status](#status)
+  - [How To Use](#how-to-use)
+  - [What v0 Handles Well](#what-v0-handles-well)
+  - [Asset Generation Scope](#asset-generation-scope)
+  - [Current Boundaries](#current-boundaries)
+  - [Official Tutorial](#official-tutorial)
+  - [Demo](#demo)
+  - [Model Note](#model-note)
+  - [License](#license)
+  - [中文](#中文)
+  - [目录](#目录)
+  - [状态](#状态)
+  - [怎么使用](#怎么使用)
+  - [v0 比较稳定的能力](#v0-比较稳定的能力)
+  - [素材生成范围](#素材生成范围)
+  - [当前边界](#当前边界)
+  - [官方教程](#官方教程)
+  - [展示模组](#展示模组)
+  - [模型说明](#模型说明)
+  - [许可](#许可)
+  - [效果展示](#效果展示)
 
 ## Status
 
@@ -122,14 +135,6 @@ Ashen Ledger is a Workshop demonstration mod created to show the v0 skill bounda
 
 Workshop link: [AshenLedger]((https://steamcommunity.com/sharedfiles/filedetails/?id=3742034084))
 
-The screenshot below captures one full AI-assisted generation pass: content summary, generated assets, card-pack cover, asset sheets, and static validation output.
-
-![Ashen Ledger AI generation result](docs/images/ashen-ledger-ai-generation-result.png)
-
-The card-pack cover below is a successful v0 asset-generation result created from the skill's card-pack cover prompt pattern, then finalized to `300x440`.
-
-![Ashen Ledger card-pack cover](docs/images/ashen-ledger-cardpack-success.png)
-
 ## Model Note
 
 The Ashen Ledger demo shown in this repository was produced with GPT-5.5. Model capability matters: different language models, image models, prompts, and context can produce different implementation quality, asset style, and reliability. The v0 boundaries above should be read as the demonstrated result for this model-assisted workflow, not as a guarantee that every model will match it.
@@ -164,7 +169,7 @@ WAJ Modder 是一个非官方 Codex skill，用来根据自然语言创意，协
 
 这是 v0 版本 skill。生成结果应该被视为“可测试草稿”，不是无需验证的最终发布版本。
 
-当前版本最强的两个方向是：
+当前版本主要的两个方向是：
 
 - 根据自然语言设计创建 Lua 模板卡包模组。
 - 指导并后处理生成素材，尤其是卡包封面、卡面、Buff 图标和遗物图标。
@@ -263,14 +268,6 @@ Ashen Ledger / 灾厄账本 是一个创意工坊展示模组，用于说明 v0 
 
 创意工坊链接：[灾厄账本](https://steamcommunity.com/sharedfiles/filedetails/?id=3742034084)
 
-下图记录了一次完整 AI 协助生成流程：内容摘要、生成素材、卡包封面、素材板和静态校验结果。
-
-![Ashen Ledger AI generation result](docs/images/ashen-ledger-ai-generation-result.png)
-
-下图是一次成功的 v0 卡包封面生成结果：由 skill 的卡包封面提示词模式生成，然后后处理为 `300x440`。
-
-![Ashen Ledger card-pack cover](docs/images/ashen-ledger-cardpack-success.png)
-
 ## 模型说明
 
 本仓库展示的 Ashen Ledger 示例使用 GPT-5.5 生成与协助完成。模型能力会直接影响结果：不同语言模型、图像模型、提示词和上下文，可能带来不同的实现质量、素材风格和稳定性。因此，上方 v0 能力边界应理解为该模型辅助流程下的展示结果，而不是所有模型都能完全复现的保证。
@@ -280,3 +277,15 @@ Ashen Ledger / 灾厄账本 是一个创意工坊展示模组，用于说明 v0 
 MIT License, copyright (c) 2026 Mr_Pardon。
 
 详见 `LICENSE` 和 `NOTICE.md`。
+
+## 效果展示
+
+![alt text](docs/images/ashen-ledger-cardpack-success.png)
+
+![alt text](docs/images/cards-sheet-generated.png)
+
+![alt text](docs/images/buffs-sheet-generated.png)
+
+![alt text](docs/images/relics-sheet-generated.png)
+
+![alt text](docs/images/generate-result.png)
